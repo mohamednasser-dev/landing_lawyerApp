@@ -1054,8 +1054,8 @@
 
         <div class="row">
             <div class="col-lg-8">
-                <div id="error-div" class="blogitem-commentbox mt-30 t-r rtl" style="color: red;">
-                    <div id="success-div" class="blogitem-commentbox mt-30 t-r rtl" style="color: green;">
+                <div id="error-div" class="blogitem-commentbox mt-30 t-r rtl" style="color: red;"></div>
+                <div id="success-div" class="blogitem-commentbox mt-30 t-r rtl" style="color: green;"></div>
                 <form id="contactform" action="assets/php/mailer.php" method="post"
                       class="tm-form tm-contact-form">
                     <div class="tm-form-inner">
@@ -1076,7 +1076,8 @@
                             <span class="tm-form-animatedline"></span>
                         </div>
                         <div class="tm-form-field">
-                            <textarea name="message" required cols="30" rows="4" placeholder="نص الرسالة"></textarea>
+                                    <textarea name="message" required cols="30" rows="4"
+                                              placeholder="نص الرسالة"></textarea>
                             <span class="tm-form-animatedline"></span>
                         </div>
                         <div class="tm-form-field">
@@ -1150,7 +1151,8 @@
                             <img src="assets/images/logo-footer.png" alt="appmyil logo">
                         </a>
                         <p>
-                            كن عادلا في حكمك على الناس ... فالعدل من شيم الاخيار , وكن حالما في حكمتك ... فالحكمة ميزان
+                            كن عادلا في حكمك على الناس ... فالعدل من شيم الاخيار , وكن حالما في حكمتك ...
+                            فالحكمة ميزان
                             يتعدى طول النهار
 
                         </p>
@@ -1256,8 +1258,8 @@
                     $('#name_error').empty();
                 },
                 success: function (data) {
-                    $("#success-div").html('');
-                    $("#error-div").html('');
+                    // $("#success-div").html('');
+                    // $("#error-div").html('');
                     $("#success-div").append('تم الارسال بنجاح');
                     $("#contactform").trigger('reset');
                 },
