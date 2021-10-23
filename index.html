@@ -1051,6 +1051,8 @@
                 <span class="tm-sectiontitle-divider"><i class="zmdi zmdi-fullscreen"></i></span>
             </div>
         </div>
+        <div id="error-div" class="blogitem-commentbox mt-30 t-r rtl" style="color: red;">
+        <div id="success-div" class="blogitem-commentbox mt-30 t-r rtl" style="color: green;">
         <div class="row">
             <div class="col-lg-8">
                 <form id="contactform" action="assets/php/mailer.php" method="post"
@@ -1253,14 +1255,16 @@
                     $('#name_error').empty();
                 },
                 success: function (data) {
+                    $("#success-div").html('')
                     $("#error-div").html('')
-                    $("#error-div").append('<li>' + value + '</li>')
+                    $("#success-div").append('<li>' + 'تم الارسال بنجاح' + '</li>')
                     $("#contactform").trigger('reset');
                 },
                 error: function (data_error, exception) {
                     console.log('error');
                     var element = document.getElementById("error-div");
                     $("#error-div").html('')
+                    $("#success-div").html('')
                     $.each(data_error.responseJSON.errors, function (index, value) {
                         $("#error-div").append('<li>' + value + '</li>')
                     });
