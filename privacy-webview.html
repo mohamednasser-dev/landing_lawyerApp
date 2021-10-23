@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="توثيق التتطبيق الاول فى مصر والعالم العربى المتخصص فى اداره مكاتب المحاماه ">
+    <meta name="keywords" content="lawyer, law, محاماه, استشارة قانونية ,تطبيق محامى , محامى,توثيق">
+    <title>توثيق</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="apple-touch-icon">
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/plugins.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <link rel="stylesheet" href="assets/css/custom.css">
+    <link rel="stylesheet" href="assets/css/rtl.css">
+</head>
+
+<body>
+
+<!-- Preloader -->
+<div class="tm-preloader">
+    <span class="tm-preloader-box"></span>
+    <button class="tm-button tm-button-sm tm-button-white"><span>إلغاء التحميل</span></button>
+</div>
+<!--// Preloader -->
+
+<!-- Wrapper -->
+<div id="wrapper" class="wrapper">
+    <!-- Services Area -->
+    <div id="tm-area-services" class="tm-services-area tm-section tm-padding-section bg-white rtl">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="tm-sectiontitle text-center">
+                        <h2 class="bolder">سياسة الخصوصية</h2>
+                        <span class="tm-sectiontitle-divider"><i class="zmdi zmdi-fullscreen"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-10">
+                    <div class="row mt-40-reverse">
+                        <!-- Single Features -->
+                        <div class="col-lg-12 col-md-6 col-12 mt-40">
+                            <div class="tm-service">
+                                <div class="tm-service-content t-r" id="panel-about">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-1"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</main>
+<!--// Page Content -->
+
+<!-- Footer Area -->
+<div class="tm-footer bg-gradient rtl">
+    <div class="tm-footer-bgshape">
+        <img src="assets/images/footer-bgshape.png" alt="footer background shape">
+    </div>
+</div>
+<!--// Footer Area -->
+
+<script src="assets/js/modernizr-3.6.0.min.js"></script>
+<script src="assets/js/jquery.min.js"></script>
+
+<script src="assets/js/popper.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/plugins.js"></script>
+<script src="assets/js/main.js"></script>
+
+<!--// Js Files -->
+<script>
+    $(document).ready(function () {
+        $.ajax({
+            url: "http://tes.golden-info.com/api/settings/get_data/privacy",
+            method: 'get',
+            contentType: false,
+            cache: false,
+            processData: false,
+            dataType: "json",
+            success: function (data) {
+                console.log(data.data);
+                $("#panel-about").append(data.data);
+            }
+        });
+    });
+</script>
+</body>
+
+</html>
