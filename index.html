@@ -1049,7 +1049,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-8">
-                    <form id="tm-contactform" action="assets/php/mailer.php" method="post"
+                    <form id="contactform" action="assets/php/mailer.php" method="post"
                         class="tm-form tm-contact-form">
                         <div class="tm-form-inner">
                             <div class="tm-form-field tm-form-fieldhalf">
@@ -1227,8 +1227,53 @@
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/plugins.js"></script>
     <script src="assets/js/main.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#contactform').on('submit', function(event) {
+                event.preventDefault();
+                $.ajax({
+                    url: "http://tes.golden-info.com/api/contact-us",
+                    method: 'post',
+                    data: new FormData(this),
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    dataType: "json",
+                    beforeSend: function() {
+                        $('#cat_name_error').empty();
+                        $('#address_error').empty();
+                        $('#phone_error').empty();
+                        $('#password_error').empty();
+                        $('#email_error').empty();
+                        $('#name_error').empty();
+                    },
+                    success: function(data) {
+                        $("#error-div").html('')
+                        $.each(data_error.responseJSON.errors, function( index, value ) {
+                            $("#error-div").append('<li>'+'تم الارسال بنجاح'+'</li>')
+                        });
+                        $("#contactform").trigger('reset');
+                    },
+                    error: function(data_error, exception) {
+                        console.log('error');
+                        var element = document.getElementById("error-div");
+                        $("#error-div").html('')
+                        $.each(data_error.responseJSON.errors, function( index, value ) {
+                            $("#error-div").append('<li>'+value+'</li>')
+                        });
 
-    <!--// Js Files -->
+                        $("#errors-div").html('')
+                        $.each(data_error.responseJSON.errors, function( index, value ) {
+                            $("#errors-div").append('<li>'+value+'</li>')
+                        });
+                    }
+                });
+
+
+
+            });
+        });
+    </script>
 </body>
 
 </html>
